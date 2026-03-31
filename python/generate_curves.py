@@ -64,7 +64,7 @@ def train_tracked(X, y, lr=0.01, epochs=100):
 # ============================================================
 # COURBE 1 — Erreurs par epoch sur les 4 cas
 # ============================================================
-print("📈 Génération courbe 1 : erreurs par epoch...")
+print(" Génération courbe 1 : erreurs par epoch...")
 
 # Cas 1
 X_lin = np.load("../test_cases/X_linear.npy")
@@ -96,12 +96,12 @@ plt.grid(True)
 plt.tight_layout()
 plt.savefig("../test_cases/plots/courbe1_erreurs_par_epoch.png")
 plt.close()
-print("  ✅ courbe1_erreurs_par_epoch.png")
+print(" courbe1_erreurs_par_epoch.png")
 
 # ============================================================
 # COURBE 2 — Frontière de décision Cas 1 vs Cas 2
 # ============================================================
-print("📈 Génération courbe 2 : frontières de décision...")
+print(" Génération courbe 2 : frontières de décision...")
 
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
@@ -131,12 +131,12 @@ for ax, (X_pad, y, X_orig, title) in zip(axes, [
 plt.tight_layout()
 plt.savefig("../test_cases/plots/courbe2_frontieres_decision.png")
 plt.close()
-print("  ✅ courbe2_frontieres_decision.png")
+print(" courbe2_frontieres_decision.png")
 
 # ============================================================
 # COURBE 3 — Surapprentissage : Train vs Test par epochs
 # ============================================================
-print("📈 Génération courbe 3 : surapprentissage train vs test...")
+print(" Génération courbe 3 : surapprentissage train vs test...")
 
 X_train = np.load("../test_cases/X_train.npy")
 y_train = np.load("../test_cases/y_train.npy").astype(np.int32)
@@ -180,12 +180,12 @@ plt.axhline(y=100, color='blue', alpha=0.2)
 plt.tight_layout()
 plt.savefig("../test_cases/plots/courbe3_surapprentissage.png")
 plt.close()
-print("  ✅ courbe3_surapprentissage.png")
+print("courbe3_surapprentissage.png")
 
 # ============================================================
 # COURBE 4 — Distribution du dataset (déséquilibre)
 # ============================================================
-print("📈 Génération courbe 4 : distribution du dataset...")
+print(" Génération courbe 4 : distribution du dataset...")
 
 classes = ["Great Wall", "Taj Mahal", "Christ Rédempteur"]
 train_counts = np.bincount(y_train)
@@ -206,6 +206,6 @@ ax.grid(axis='y', alpha=0.3)
 plt.tight_layout()
 plt.savefig("../test_cases/plots/courbe4_distribution_dataset.png")
 plt.close()
-print("  ✅ courbe4_distribution_dataset.png")
+print("courbe4_distribution_dataset.png")
 
-print("\n✅ Toutes les courbes générées dans test_cases/plots/")
+print("\nToutes les courbes générées dans test_cases/plots/")

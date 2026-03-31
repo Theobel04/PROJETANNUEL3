@@ -49,7 +49,7 @@ void lm_train(LinearModel* m, double* X, int* y,
         if (e % 10 == 0)
             printf("Epoch %3d — erreurs : %d / %d\n", e, errors, n_samples);
         if (errors == 0) {
-            printf("✅ Convergence à l'epoch %d\n", e);
+            printf("Convergence à l'epoch %d\n", e);
             break;
         }
     }
@@ -69,7 +69,7 @@ void lm_save(LinearModel* m, const char* path) {
     if (!f) { fprintf(stderr, "Erreur ouverture %s\n", path); return; }
     fwrite(m, sizeof(LinearModel), 1, f);
     fclose(f);
-    printf("💾 Modèle sauvegardé : %s\n", path);
+    printf("Modèle sauvegardé : %s\n", path);
 }
 
 LinearModel* lm_load(const char* path) {
@@ -83,6 +83,6 @@ LinearModel* lm_load(const char* path) {
         return NULL;
     }
     fclose(f);
-    printf("📂 Modèle chargé : %s\n", path);
+    printf("Modèle chargé : %s\n", path);
     return m;
 }

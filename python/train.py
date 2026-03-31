@@ -32,7 +32,7 @@ def to_c_int(arr):
 
 # --- Entraînement sur le dataset monuments ---
 print("=" * 50)
-print("🏛️  DATASET MONUMENTS")
+print("  DATASET MONUMENTS")
 print("=" * 50)
 X_train = np.load("../test_cases/X_train.npy")
 y_train = np.load("../test_cases/y_train.npy").astype(np.int32)
@@ -55,7 +55,7 @@ lib.lm_destroy(model)
 
 # --- Test sur le Cas 1 (linéairement séparable) ---
 print("\n" + "=" * 50)
-print("✅  CAS 1 : Linéairement séparable")
+print("  CAS 1 : Linéairement séparable")
 print("=" * 50)
 X_lin = np.load("../test_cases/X_linear.npy")
 y_lin = np.load("../test_cases/y_linear.npy")
@@ -75,7 +75,7 @@ lib.lm_destroy(model2)
 
 # --- Test sur le Cas 2 (XOR) ---
 print("\n" + "=" * 50)
-print("❌  CAS 2 : XOR (non linéairement séparable)")
+print("  CAS 2 : XOR (non linéairement séparable)")
 print("=" * 50)
 X_xor = np.load("../test_cases/X_xor.npy")
 y_xor = np.load("../test_cases/y_xor.npy")
@@ -95,7 +95,7 @@ lib.lm_destroy(model3)
 
 # --- Test sur le Cas 3 (Cercles) ---
 print("\n" + "=" * 50)
-print("❌  CAS 3 : Cercles (non linéairement séparable)")
+print("  CAS 3 : Cercles (non linéairement séparable)")
 print("=" * 50)
 X_circles = np.load("../test_cases/X_circles.npy")
 y_circles  = np.load("../test_cases/y_circles.npy")
@@ -115,10 +115,10 @@ lib.lm_destroy(model4)
 
 # --- Résumé final ---
 print("\n" + "=" * 50)
-print("📊  RÉSUMÉ")
+print("  RÉSUMÉ")
 print("=" * 50)
-print(f"  Cas 1 - Linéairement séparable : 100.00%  ✅")
-print(f"  Cas 2 - XOR                    : {acc_xor:.2f}%  ❌")
-print(f"  Cas 3 - Cercles                : {acc_circles:.2f}%  ❌")
+print(f"  Cas 1 - Linéairement séparable : 100.00%  SUCCESS")
+print(f"  Cas 2 - XOR                    : {acc_xor:.2f}%  FAIL")
+print(f"  Cas 3 - Cercles                : {acc_circles:.2f}%  FAIL")
 print(f"  Dataset Monuments (train)      : {acc_train:.2f}%")
 print(f"  Dataset Monuments (test)       : {acc_test:.2f}%")
