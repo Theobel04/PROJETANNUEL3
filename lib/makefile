@@ -1,12 +1,20 @@
-# lib/Makefile
-CC     = gcc
-CFLAGS = -O2 -Wall -fPIC
-TARGET = linear_model.so
+CC = gcc
+CFLAGS = -Wall -O2 -fPIC
+LDFLAGS = -shared
 
-all: $(TARGET)
+all: linear_model.so mlp.so
 
-$(TARGET): linear_model.c linear_model.h
-	$(CC) $(CFLAGS) -shared -o $(TARGET) linear_model.c
+linear_model.so: linear_model.o
+	$(CC) $(LDFLAGS) -o $@ $^
+
+mlp.so: mlp.o
+	$(CC) $(LDFLAGS) -o $@ $^ -lm
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
 
 clean:
-	rm -f $(TARGET)
+	rm -f *.o *.so
+
+install:
+	cp *.so ../python/
